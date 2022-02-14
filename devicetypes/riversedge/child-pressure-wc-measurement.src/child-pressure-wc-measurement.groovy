@@ -24,19 +24,21 @@ metadata {
 	definition (name: "Child Pressure WC Measurement", namespace: "riversedge", author: "Rivers Edge") {
 		capability "Sensor"
 
-//		attribute "lastUpdated", "String"
         attribute "wcpressure", "Number"   //ST does not have a standard Capability for Pressure Measurement
 	}
-        
+
+   simulator {
+   }
+    
 	tiles(scale: 2) {
 		multiAttributeTile(name: "wcpressure", type: "generic", width: 6, height: 4, canChangeIcon: true) {
 			tileAttribute("device.wcpressure", key: "PRIMARY_CONTROL") {
-				attributeState("wcpressure", label: '${currentValue} WC', unit: "WC", defaultState: true)
+				attributeState("wcpressure", label: '${currentValue} ${unit}', unit: "WC", defaultState: true)
 		   }
-// 			tileAttribute("device.lastUpdated", key: "SECONDARY_CONTROL") {
-//    				attributeState("default", label:'    Last updated ${currentValue}',icon: "st.Health & Wellness.health9")
-//            }
       }
+
+      main "wcpressure"
+      details "wcpressure"
 	}
 }
 
