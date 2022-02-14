@@ -31,17 +31,17 @@ metadata {
 	tiles(scale: 2) {
 		multiAttributeTile(name: "wcpressure", type: "generic", width: 6, height: 4, canChangeIcon: true) {
 			tileAttribute("device.wcpressure", key: "PRIMARY_CONTROL") {
-				attributeState("wcpressure", label: '${currentValue} ${unit}', unit: "WC", defaultState: true)
-			}
+				attributeState("wcpressure", label: '${currentValue} WC', unit: "WC", defaultState: true)
+		   }
 // 			tileAttribute("device.lastUpdated", key: "SECONDARY_CONTROL") {
 //    				attributeState("default", label:'    Last updated ${currentValue}',icon: "st.Health & Wellness.health9")
 //            }
-		}
+      }
 	}
 }
 
 def parse(String description) {
-    log.debug "parse(${description}) called"
+   log.debug "parse(${description}) called"
 	def parts = description.split(" ")
     def name  = parts.length>0?parts[0].trim():null
     def value = parts.length>1?parts[1].trim():null
