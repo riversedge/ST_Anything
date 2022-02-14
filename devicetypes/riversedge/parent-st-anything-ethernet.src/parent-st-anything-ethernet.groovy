@@ -308,6 +308,9 @@ private createChildDevice(String deviceName, String deviceNumber) {
          		case "pressure": 
                 		deviceHandlerName = "Child Pressure Measurement" 
                 	break
+         		case "wcpressure": 
+                		deviceHandlerName = "Child Pressure WC Measurement" 
+                	break
          		case "soundPressureLevel": 
                 		deviceHandlerName = "Child Sound Pressure Level" 
                 	break

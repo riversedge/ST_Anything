@@ -16,22 +16,22 @@
  *
  *    Date        Who            What
  *    ----        ---            ----
- *    2022-02-13  Wes Wright     Set up for WC measurement instead of hPa
+ *    2022-02-13  Rivers Edge     Set up for WC measurement instead of hPa
  *
  * 
  */
 metadata {
-	definition (name: "Child Pressure WC Measurement", namespace: "riversedge", author: "Wes Wright") {
+	definition (name: "Child Pressure WC Measurement", namespace: "riversedge", author: "Rivers Edge") {
 		capability "Sensor"
 
 //		attribute "lastUpdated", "String"
-        attribute "pressure", "Number"   //ST does not have a standard Capability for Pressure Measurement
+        attribute "wcpressure", "Number"   //ST does not have a standard Capability for Pressure Measurement
 	}
         
 	tiles(scale: 2) {
-		multiAttributeTile(name: "pressure", type: "generic", width: 6, height: 4, canChangeIcon: true) {
-			tileAttribute("device.pressure", key: "PRIMARY_CONTROL") {
-				attributeState("pressure", label: '${currentValue} ${unit}', unit: "WC", defaultState: true)
+		multiAttributeTile(name: "wcpressure", type: "generic", width: 6, height: 4, canChangeIcon: true) {
+			tileAttribute("device.wcpressure", key: "PRIMARY_CONTROL") {
+				attributeState("wcpressure", label: '${currentValue} ${unit}', unit: "WC", defaultState: true)
 			}
 // 			tileAttribute("device.lastUpdated", key: "SECONDARY_CONTROL") {
 //    				attributeState("default", label:'    Last updated ${currentValue}',icon: "st.Health & Wellness.health9")
