@@ -58,5 +58,13 @@ def parse(String description) {
     }
 }
 
+def updated() {
+   initialize()
+}
+
 def installed() {
+   initialize()
+}
+
+def initialize() {
 }
