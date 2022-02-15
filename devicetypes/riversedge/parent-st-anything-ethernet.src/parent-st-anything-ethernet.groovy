@@ -63,6 +63,7 @@ def parse(String description) {
     	def parts = bodyString.split(" ")
     	def name  = parts.length>0?parts[0].trim():null
     	def value = parts.length>1?parts[1].trim():null
+        def value2 = parts.length>2?parts[2].trim():null
         
 		def nameparts = name.split("\\d+", 2)
 		def namebase = nameparts.length>0?nameparts[0].trim():null
@@ -122,7 +123,7 @@ def parse(String description) {
             
             if (childDevice != null) {
                 //log.debug "parse() found child device ${childDevice.deviceNetworkId}"
-                childDevice.parse("${namebase} ${value}")
+                childDevice.parse("${namebase} ${value} ${value2}")
 				log.debug "${childDevice.deviceNetworkId} - name: ${namebase}, value: ${value}"
             }
             else  //must not be a child, perform normal update
@@ -308,8 +309,8 @@ private createChildDevice(String deviceName, String deviceNumber) {
          		case "pressure": 
                 		deviceHandlerName = "Child Pressure Measurement" 
                 	break
-         		case "wcpressure": 
-                		deviceHandlerName = "Child Pressure WC Measurement" 
+         		case "radon": 
+                		deviceHandlerName = "Child Radon Monitor" 
                 	break
          		case "soundPressureLevel": 
                 		deviceHandlerName = "Child Sound Pressure Level" 

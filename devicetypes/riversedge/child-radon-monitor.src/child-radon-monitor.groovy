@@ -132,4 +132,3 @@ def installed() {
 
 def initialize() {
 }
-
