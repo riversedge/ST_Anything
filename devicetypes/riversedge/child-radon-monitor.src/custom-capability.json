@@ -1,0 +1,75 @@
+{
+  "name": "Custom Radon Monitor",
+  "attributes": {
+    "state": {
+      "schema": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "enum": [
+              "Off",
+              "Low",
+              "OK",
+              "High",
+              "Critical"
+            ],
+            "default": "Off"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "value"
+        ]
+      }
+    },
+    "pressure": {
+      "schema": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          },
+          "unit": {
+            "type": "string",
+            "enum": [
+               "WC",
+               "PSI",
+               "PA",
+               "kPA",
+               "inHG",
+               "MBAR"
+            ],
+            "default": "WC"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "value"
+        ]
+      },
+    },
+    "temperature": {
+      "schema": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          },
+          "unit": {
+            "type": "string",
+            "enum": [
+               "F",
+               "C"
+            ],
+            "default": "F"
+          },
+        },
+        "additionalProperties": false,
+        "required": [
+          "value"
+        ]
+      },
+    }
+  }
+}

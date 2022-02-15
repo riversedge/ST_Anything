@@ -1,0 +1,69 @@
+{
+  "dashboard": {
+    "states": [
+      {
+        "label": "{{state.value}}",
+        "alternatives": [
+          {
+             "key": "Off",
+             "value": "Off",
+             "type": "inactive"
+          },
+          {
+             "key": "Low",
+             "value": "Low",
+             "type": "active"
+          },
+          {
+             "key": "OK",
+             "value": "OK",
+             "type": "active"
+          },
+          {
+             "key": "High",
+             "value": "High",
+             "type": "active"
+          },
+          {
+             "key": "Critical",
+             "value": "Critical",
+             "type": "active"
+          }
+         ]
+      }
+    ],
+    "actions": []
+  },
+  "detailView": [
+    {
+      "label": "State",
+      "displayType": "state",
+      "state": {
+         "label": "state.value",
+         "unit": ""
+      }
+    },
+    {
+      "label": "Pressure",
+      "displayType": "state",
+      "state": {
+         "value": "pressure.value",
+         "unit": "pressure.unit"
+      }
+    },
+    {
+      "label": "Board Temperature",
+      "displayType": "state",
+      "state": {
+         "value": "temperature.value",
+         "unit": "temperature.unit"
+      }
+    } 
+  ],
+  "automation": {
+    "conditions": [],
+    "actions": []
+  },
+  "id": "publicdouble60310.customRadonMonitor",
+  "version": 1
+}

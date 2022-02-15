@@ -1,0 +1,19 @@
+{
+  "onboardingConfig": {
+    "deviceOnboardingId": "Radon Pressur",
+    "mnId": "fkJQ",
+    "setupId": "001",
+    "vid": "ST_26bc584c-2a74-4722-9cee-a8248944510b",
+    "deviceTypeId": "MultiFunctionalSensor",
+    "ownershipValidationTypes": [
+      "JUSTWORKS"
+    ],
+    "identityType": "ED25519",
+    "deviceIntegrationProfileKey": {
+      "id": "59210ab2-5d19-47d3-a0ae-ab05c828cfe6",
+      "majorVersion": 0,
+      "minorVersion": 1
+    },
+    "productId": "ceaeba8d-3a81-4088-b568-16aa2e6b99e9"
+  }
+}
