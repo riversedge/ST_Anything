@@ -85,8 +85,11 @@ def parse(String description) {
     if (attrname && attrvalue) {
         def attrFloat = Float.valueOf(attrvalue);
         // Update device
-        sendEvent(name: attrname, value: attrvalue)
-        if (attrname.equals("pressure")) {        
+        if (attrname.equals("temperature")) {
+           sendEvent(name: attrname, value: attrvalue, unit: "F");
+        }
+        if (attrname.equals("pressure")) {    
+        	sendEvent(name: attrname, value: attrvalue, unit: "WC");
             if (attrFloat < 0.5) {
             	sendEvent(name: "status", value: "Off")
                 sendEvent(name: "alarm", value: "strobe")
