@@ -27,16 +27,10 @@ metadata {
         namespace: "riversedge", 
         author: "Rivers Edge",
     ) {
-        //capability "atmosphericPressureMeasurement"
-        //capability "Alarm"
-   	    //capability "Temperature Measurement"    
-        
-        //capability "Button"
-        //capability "Holdable Button"
         capability "Signal Strength"
         capability "Presence Sensor"  //used to determine is the Arduino microcontroller is still reporting data or not
         capability "publicdouble60310.customRadonMonitor"
-        //capability "afterwatch06989.refresh"
+        capability "afterwatch06989.refresh"
         
         command "sendData", ["string"]
 	}
