@@ -26,6 +26,8 @@ metadata {
     	name: "Radon Monitor", 
         namespace: "riversedge", 
         author: "Rivers Edge",
+		"mnmn": "SmartThings",
+    	"vid": "SmartThings-smartthings-Radon_Monitor"
     ) {
         capability "Signal Strength"
         capability "Presence Sensor"  //used to determine is the Arduino microcontroller is still reporting data or not
