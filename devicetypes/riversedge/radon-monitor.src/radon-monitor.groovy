@@ -48,6 +48,7 @@ metadata {
 		input "timeOut", "number", title: "Timeout in Seconds", description: "Arduino max time (try 900)", range: "120..86400", required: true, displayDuringSetup:true
 	}
     
+    /*
     tiles(scale: 2) {
  		multiAttributeTile(name: "wcstatus", type: "generic", width: 6, height: 4) {
 			tileAttribute("device.wcstatus", key: "PRIMARY_CONTROL") {
@@ -88,6 +89,7 @@ metadata {
       main(["wcstatus", "pressure"])
       details(["wcstatus", "pressure", "temperature"])
 	}
+    */
 }
 
 // parse events into attributes
