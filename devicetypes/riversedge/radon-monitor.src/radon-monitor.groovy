@@ -46,10 +46,9 @@ metadata {
 		input "timeOut", "number", title: "Timeout in Seconds", description: "Arduino max time (try 900)", range: "120..86400", required: true, displayDuringSetup:true
 	}
     
-    /*
     tiles(scale: 2) {
- 		multiAttributeTile(name: "status", type: "generic", width: 6, height: 4) {
-			tileAttribute("device.status", key: "PRIMARY_CONTROL") {
+ 		multiAttributeTile(name: "wcstatus", type: "generic", width: 6, height: 4) {
+			tileAttribute("device.wcstatus", key: "PRIMARY_CONTROL") {
 				attributeState "Off", label:'${name}', backgroundColor:"#B71C1C"
                 attributeState "Low", label:'${name}', backgroundColor:"#FDD835"
                 attributeState "OK", label:'${name}', backgroundColor:"#00C853"
@@ -84,10 +83,9 @@ metadata {
             state("rssi", label:'${currentValue}')
          }
 
-      main(["status", "pressure", "temperature"])
-      details(["status", "pressure", "temperature"])
+      main(["wcstatus", "pressure"])
+      details(["wcstatus", "pressure", "temperature"])
 	}
-    */
 }
 
 // parse events into attributes
@@ -147,23 +145,23 @@ def parse(String description) {
                 }
                 else if (attrname.equals("pressure")) {   
                     if (attrFloat < 0.5) {
-                        sendEvent(name: "status", value: "Off")
+                        sendEvent(name: "wcstatus", value: "Off")
                         //sendEvent(name: "alarm", value: "strobe")
                     }
                     else if (attrFloat < 1.2) {
-                        sendEvent(name: "status", value: "Low")
+                        sendEvent(name: "wcstatus", value: "Low")
                         //sendEvent(name: "alarm", value: "off")
                     }
                     else if (attrFloat < 1.7) {
-                        sendEvent(name: "status", value: "OK")
+                        sendEvent(name: "wcstatus", value: "OK")
                         //sendEvent(name: "alarm", value: "off")
                     }
                     else if (attrFloat < 2.0) {
-                        sendEvent(name: "status", value: "High")
+                        sendEvent(name: "wcstatus", value: "High")
                         //sendEvent(name: "alarm", value: "off")
                     }
                     else {
-                        sendEvent(name: "status", value: "Critical")
+                        sendEvent(name: "wcstatus", value: "Critical")
                         ///sendEvent(name: "alarm", value: "strobe")
                     }
                     results = createEvent(name: attrname, value: attrvalue, unit: "WC");
