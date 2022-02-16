@@ -1,11 +1,12 @@
 {
   "name": "Custom Radon Monitor",
   "attributes": {
-    "state": {
+    "status": {
       "schema": {
         "type": "object",
         "properties": {
           "value": {
+            "title": "StatusValue",
             "type": "string",
             "enum": [
               "Off",
@@ -28,6 +29,7 @@
         "type": "object",
         "properties": {
           "value": {
+            "title": "PressureValue",
             "type": "number"
           },
           "unit": {
@@ -54,6 +56,7 @@
         "type": "object",
         "properties": {
           "value": {
+            "title": "TemperatureValue",
             "type": "number"
           },
           "unit": {
@@ -70,6 +73,8 @@
           "value"
         ]
       },
+      "enumCommands": []
     }
-  }
+  },
+  "commands": {}
 }

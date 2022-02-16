@@ -1,69 +1,105 @@
 {
-  "dashboard": {
-    "states": [
-      {
-        "label": "{{state.value}}",
-        "alternatives": [
-          {
-             "key": "Off",
-             "value": "Off",
-             "type": "inactive"
-          },
-          {
-             "key": "Low",
-             "value": "Low",
-             "type": "active"
-          },
-          {
-             "key": "OK",
-             "value": "OK",
-             "type": "active"
-          },
-          {
-             "key": "High",
-             "value": "High",
-             "type": "active"
-          },
-          {
-             "key": "Critical",
-             "value": "Critical",
-             "type": "active"
-          }
-         ]
-      }
+    "dashboard": {
+        "states": [
+            {
+                "label": "{{status.value}}",
+                "alternatives": [
+                {
+                  "key": "Off",
+                  "value": "Off",
+                  "type": "inactive"
+                },
+                {
+                  "key": "Low",
+                  "value": "Low",
+                  "type": "active"
+                },
+                {
+                  "key": "OK",
+                  "value": "OK",
+                  "type": "active"
+                },
+                {
+                  "key": "High",
+                  "value": "High",
+                  "type": "active"
+                },
+                {
+                  "key": "Critical",
+                  "value": "Critical",
+                  "type": "active"
+                }
+                ]
+            }
+        ],
+        "actions": [],
+        "basicPlus": []
+    },
+    "detailView": [
+        {
+            "label": "Status",
+            "displayType": "state",
+            "state": {
+                "label": "{{status.value}}"
+            }
+        },
+        {
+            "label": "Pressure",
+            "displayType": "state",
+            "state": {
+                "label": "{{pressure.value}}",
+                "unit": "pressure.unit"
+            }
+        },
+        {
+            "label": "Board Temperature",
+            "displayType": "state",
+            "state": {
+                "label": "{{temperature.value}}",
+                "unit": "temperature.unit"
+            }
+        }
     ],
-    "actions": []
-  },
-  "detailView": [
-    {
-      "label": "State",
-      "displayType": "state",
-      "state": {
-         "label": "state.value",
-         "unit": ""
-      }
+    "automation": {
+        "conditions": [
+            {
+               "label": "Status",
+               "displayType": "list",
+               "list": {
+                  "value": "status.value",
+                  "valueType": "string",
+                  "alternatives": [
+                  {
+                     "key": "Off",
+                     "value": "Off",
+                     "type": "inactive"
+                  },
+                  {
+                     "key": "Low",
+                        "value": "Low",
+                     "type": "active"
+                  },
+                  {
+                     "key": "OK",
+                        "value": "OK",
+                     "type": "active"
+                  },
+                  {
+                     "key": "High",
+                        "value": "High",
+                     "type": "active"
+                  },
+                  {
+                     "key": "Critical",
+                        "value": "Critical",
+                     "type": "active"
+                  }
+                  ],
+               }
+            }
+         ],
+        "actions": []
     },
-    {
-      "label": "Pressure",
-      "displayType": "state",
-      "state": {
-         "value": "pressure.value",
-         "unit": "pressure.unit"
-      }
-    },
-    {
-      "label": "Board Temperature",
-      "displayType": "state",
-      "state": {
-         "value": "temperature.value",
-         "unit": "temperature.unit"
-      }
-    } 
-  ],
-  "automation": {
-    "conditions": [],
-    "actions": []
-  },
-  "id": "publicdouble60310.customRadonMonitor",
-  "version": 1
+    "id": "publicdouble60310.customRadonMonitor",
+    "version": 1
 }
