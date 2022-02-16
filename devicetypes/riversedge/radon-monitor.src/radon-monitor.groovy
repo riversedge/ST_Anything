@@ -269,6 +269,7 @@ def updated() {
 
 def updateDeviceNetworkID() {
 	log.debug "Executing 'updateDeviceNetworkID'"
+    if (mac == null) return
     def formattedMac = mac.toUpperCase()
     formattedMac = formattedMac.replaceAll(":", "")
     if(device.deviceNetworkId!=formattedMac) {
