@@ -26,20 +26,15 @@ metadata {
         namespace: "riversedge", 
         author: "Rivers Edge",
     ) {
-        capability "atmosphericPressureMeasurement"
-        capability "Alarm"
-   		capability "Temperature Measurement"    
-		capability "Sensor" 
-        
-        attribute "pressure", "Number"   //ST does not have a standard Capability for Pressure Measurement
+        capability "publicdouble60310.customRadonMonitor"
 	}
 
 	simulator {
 	}
     
 	tiles(scale: 2) {
- 		multiAttributeTile(name: "status", type: "generic", width: 6, height: 4) {
-			tileAttribute("device.status", key: "PRIMARY_CONTROL") {
+ 		multiAttributeTile(name: "wcstatus", type: "generic", width: 6, height: 4) {
+			tileAttribute("device.wcstatus", key: "PRIMARY_CONTROL") {
 				attributeState "Off", label:'${name}', backgroundColor:"#B71C1C"
                 attributeState "Low", label:'${name}', backgroundColor:"#FDD835"
                 attributeState "OK", label:'${name}', backgroundColor:"#00C853"
@@ -71,8 +66,8 @@ metadata {
               )
          }
 
-      main(["status", "pressure", "temperature"])
-      details(["status", "pressure", "temperature"])
+      main(["wcstatus", "pressure", "temperature"])
+      details(["wcstatus", "pressure", "temperature"])
 	}
 }
 
@@ -91,27 +86,20 @@ def parse(String description) {
         if (attrname.equals("pressure")) {    
         	sendEvent(name: attrname, value: attrvalue, unit: "WC");
             if (attrFloat < 0.5) {
-            	sendEvent(name: "status", value: "Off")
-                sendEvent(name: "alarm", value: "strobe")
+            	sendEvent(name: "wcstatus", value: "Off")
             }
             else if (attrFloat < 1.2) {
-            	sendEvent(name: "status", value: "Low")
-                sendEvent(name: "alarm", value: "off")
+            	sendEvent(name: "wcstatus", value: "Low")
             }
             else if (attrFloat < 1.7) {
-            	sendEvent(name: "status", value: "OK")
-                sendEvent(name: "alarm", value: "off")
+            	sendEvent(name: "wcstatus", value: "OK")
             }
             else if (attrFloat < 2.0) {
-            	sendEvent(name: "status", value: "High")
-                sendEvent(name: "alarm", value: "off")
+            	sendEvent(name: "wcstatus", value: "High")
             }
             else {
-            	sendEvent(name: "status", value: "Critical")
-                sendEvent(name: "alarm", value: "strobe")
+            	sendEvent(name: "wcstatus", value: "Critical")
             }
-            
-            sendEvent(name: "atmosphericPressure", value: attrFloat)
          }
          log.debug("Setting " + attrname + " = " + attrvalue);
         
