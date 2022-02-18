@@ -66,8 +66,6 @@
                "label": "Status",
                "displayType": "list",
                "list": {
-                  "value": "wcstatus.value",
-                  "valueType": "string",
                   "alternatives": [
                   {
                      "key": "Off",
@@ -95,6 +93,20 @@
                      "type": "active"
                   }
                   ],
+                  "value": "wcstatus.value"
+               }
+            },
+            {
+               "label": "Pressure",
+               "displayType": "numberField",
+               "numberField": {
+                  "value": "pressure.value",
+                  "valueType": "number",
+                  "unit": "pressure.unit",
+                  "range": [
+                     0.0,
+                     10.0
+                  ]
                }
             }
          ],
